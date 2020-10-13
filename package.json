@@ -1,0 +1,23 @@
+{
+  "name": "eugen-proxy",
+  "version": "1.0.0",
+  "description": "Tool for proxying http/s and ws/s prequests with an ability to be like \"man in the middle\".",
+  "engines": {
+    "node": "=11.5.0",
+    "npm": "=6.10.1"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "proxy",
+    "http",
+    "https",
+    "ws",
+    "wss"
+  ],
+  "author": "irklievskiy.ev@gmail.com",
+  "license": "ISC"
+}
