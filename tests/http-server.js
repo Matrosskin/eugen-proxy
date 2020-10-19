@@ -1,47 +1,20 @@
+// TODO: Possibly test script should be written as cleit requester + server response in one file
+// with a bunch of different requests to test all of them.
+
+// And send reqests manually only in case I need check some exact data or behavior.
+// But it also should not be difficult, something like copy-paste.
+
+
+
 const http = require('http');
 // const https = require('https');
 // const net = require('net');
-const url = require('url');
+// const url = require('url');
 // const zlib = require("zlib");
 
 const HTTPproxy = http.createServer((clientReq, clientRes) => {
-    console.log('req');
-    // console.error(clientReq.headers);
-    // clientRes.end("OK\n", "utf8");
-    // var url_ = url.parse(req.url);
-    var options = {
-        hostname: 'localhost',
-        port: '34010',
-        method: clientReq.method,
-        // path: url_.path,
-        path: clientReq.url,
-        headers: clientReq.headers
-    };
-    const serverReq = http.request(options, function(serverRes) {
-        serverRes.on('data', (d) => {
-            clientRes.write(d);
-            // console.log('----',d.toString());
-        });
-        serverRes.on("end", () => {
-            clientRes.end("server OK\n", "utf8");
-        });
-    });
-
-    // clientReq.on('error', (d) => {
-    // Not sure what to do here. 
-    // Sending error to server does not look good as that error between client and proxy.
-    // I guess it is even impossible.
-
-    clientReq.on('data', (d) => {
-        serverReq.write(d);
-    });
-
-    clientReq.on('end', (d) => {
-        serverReq.end();
-    });
-
-
-
+  console.log('req');
+  clientRes.end("OK\n", "utf8");
 //   console.log('h', JSON.stringify(req.headers, ' ', 4));
 
 //   // const hostnamezzz = 'http.destination.server.com';
@@ -152,10 +125,6 @@ const HTTPproxy = http.createServer((clientReq, clientRes) => {
 });
 
 
-HTTPproxy.listen(3401, function(){
-  console.log('HTTP proxy started listning.');
+HTTPproxy.listen(34010, function(){
+  console.log('HTTP test server started listning.');
 });
-
-
-
-console.error("Hello World!");
